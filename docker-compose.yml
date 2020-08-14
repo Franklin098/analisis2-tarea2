@@ -14,11 +14,9 @@ services:
   app:
     build:
       dockerfile: Dockerfile
-      context: .
+      context: ./
     restart: always
     ports:
       - "3000:3000"
     depends_on:
       - mysql-db
-    volumes:
-      - .:/usr/src/app
