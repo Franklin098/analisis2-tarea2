@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --coverageDirectory=output/coverage/jest",
-    "start": "nodemon ./index.js"
+    "start": "node ./index.js"
   },
   "jest": {
     "coverageReporters": [
