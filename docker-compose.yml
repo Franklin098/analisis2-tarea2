@@ -1,0 +1,24 @@
+version: "3.7"
+volumes:
+  mysql-db-data:
+    name: mysql-db-data
+services:
+  mysql-db:
+    build:
+      dockerfile: Dockerfile
+      context: ./mysql-db
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mysql-db-data:/var/lib/mysql"
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql-db
+    volumes:
+      - .:/usr/src/app
